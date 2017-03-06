@@ -7,3 +7,7 @@ if [ $MCVALUES -eq 1 ];then
 else
     echo "memcached status is wrong"
 fi
+CMD_GET=printf "stats\r\n"|nc 127.0.0.1 11211|grep "cmd_get"|awk '{print $3}'
+GET_HITS=printf "stats\r\n"|nc 127.0.0.1 11211|grep "get_hits"|awk '{print $3}'
+HIT_RATE=echo "scale=2;$GET_HITS/$CMD_GET*100"|bc
+echo "The hit rate is $HIT_RATE"
