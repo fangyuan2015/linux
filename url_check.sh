@@ -1,5 +1,5 @@
 #!/bin/bash
-
+. /etc/init.d/functions
 function usage() {
     echo $"usage:$0 url"
     exit 1
@@ -8,9 +8,9 @@ function usage() {
 function check_url() {
     wget --spider -q -o /dev/null --tries=1 -T 5 $1
     if [ $? -eq 0 ];then
-        echo "$1 is yes."
+        action "$1 is yes." /bin/true
     else
-        echo "$1" is no.
+        action "$1 is no" /bin/false
     fi
 }
 
