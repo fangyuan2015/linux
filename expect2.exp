@@ -1,0 +1,8 @@
+#!/usr/bin/expect
+spawn /bin/sh /root/linux/expect1.sh
+expect {
+    "username" {exp_send "oldboy\r";exp_continue}
+    "pass*" {send "123456\r";exp_continue}
+    "mail*" {exp_send 546219618@qq.com\r"}
+}
+expect eof
