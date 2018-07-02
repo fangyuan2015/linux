@@ -1,0 +1,14 @@
+tms_war_deploy.sh
+1.用来进行tms.war包部署，在测试和预发布环境验证通过
+2.由于包之间存在依赖关系（主要是lss.war对tms.war依赖），通常每次全量更新应优先执行含有tms_war_deploy.sh项目
+3.脚本存放位置：依据Jenkins项目配置，暂时统一规定存放在WEB应用服务器目录/SSY/scripts/
+4.脚本应该配置可执行权限 chmod +x 
+
+
+oth_war_deploy.sh
+1.用来进行非tms.war包部署，在测试和预发布环境验证通过
+2.脚本存放位置：依据Jenkins项目配置，暂时统一规定存放在WEB应用服务器目录/SSY/scripts/
+3.脚本应该配置可执行权限 chmod +x 
+
+
+
